@@ -9,17 +9,16 @@
 
 namespace Solid\Html;
 
-class Tags
+class Tag
 {
     public function img($src)
     {
         return '<img src="' . $src . '">';
     }
 
-    public function a(string $href, string $anchor)
+    public function a($href, $anchor)
     {
                 return '<a href="' . $href . '">' . $anchor . '</a>';
-
 
     }
 

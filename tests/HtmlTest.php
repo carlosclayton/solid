@@ -9,7 +9,13 @@
 namespace Solid\Html;
 
 
-class HtmlTest
+class HtmlTest extends \PHPUnit_Framework_TestCase
 {
+
+    public function testCriarTagImgComClasseId(){
+        $html = new Html;
+        $a = $html->a('http://example.com', 'Meu site');
+        $this->assertEquals('<a href="http://example.com">Meu site</a>', $a);
+    }
 
 }
