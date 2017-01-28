@@ -32,7 +32,7 @@ class A extends Tag
     }
 
     public function __toString() :string{
-            return '<a href="' . $this->attrs[0] . '">' . $this->attrs[1] . '</a>';
+            return '<a href="' . $this->attrs[0] . '"' . $this->options_attrs . '>' . $this->attrs[1] . '</a>';
     }
 
 }
