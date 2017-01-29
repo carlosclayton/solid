@@ -9,16 +9,17 @@
 
 namespace Solid\Html;
 
+
 class Html
 {
-    public function call(string $name, array $arguments){
+    public function __call(string $name, array $arguments){
             return $this->createTags($name, $arguments);
     }
 
     protected function createTags(string $name, array $arguments)
     {
         $class = '\Solid\Html\Tag\\' . ucfirst($name);
-        $reflection  = new \Reflection($class);
+        $reflection  = new \ReflectionClass($class);
         return $reflection->newInstanceArgs($arguments);
     }
 
