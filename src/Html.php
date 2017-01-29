@@ -11,16 +11,15 @@ namespace Solid\Html;
 
 class Html
 {
-    public function img($src)
-    {
-        return '<img src="' . $src . '">';
+    public function call(string $name, array $arguments){
+            return $this->createTags($name, $arguments);
     }
 
-    public function a($href, $anchor)
+    protected function createTags(string $name, array $arguments)
     {
-                return '<a href="' . $href . '">' . $anchor . '</a>';
-
+        $class = '\Solid\Html\Tag\\' . ucfirst($name);
+        $reflection  = new \Reflection($class);
+        return $reflection->newInstanceArgs($arguments);
     }
-
 
 }
