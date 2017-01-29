@@ -16,9 +16,17 @@ class Html
             return $this->createTags($name, $arguments);
     }
 
-    protected function createTags(string $name, array $arguments)
+    public static function __callStatic(string $name,array $arguments){
+        return self::createTags($name, $arguments);
+    }
+    protected static function createTags(string $name, array $arguments)
     {
         $class = '\Solid\Html\Tag\\' . ucfirst($name);
+
+        $attributes = new Attribute;
+
+        array_unshift($arguments, new Attribute());
+
         $reflection  = new \ReflectionClass($class);
         return $reflection->newInstanceArgs($arguments);
     }

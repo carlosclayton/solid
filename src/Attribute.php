@@ -9,16 +9,24 @@
 namespace Solid\Html;
 
 
-class Attribute
+class Attribute implements AttributeContract
 {
-    private $attributes;
+    private $attributes = [];
 
-    public function __construct(array $attributes)
+    public function __construct(array $attributes = null)
     {
-        $this->attributes = $attributes;
+        if($attributes) {
+            $this->attributes = $attributes;
+        }
     }
 
-    public function __toString()
+    public function setAttributes(array $attributes){
+
+            $this->attributes = $attributes;
+
+    }
+
+    public function __toString() :string
     {
         $result = [];
         foreach ($this->attributes as $key => $value){
