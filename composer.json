@@ -1,0 +1,23 @@
+{
+    "name": "vendor/solid",
+    "description": "Composer project",
+    "authors": [
+        {
+            "name": "Carlos Clayton",
+            "email": "carlos.clayton@gmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^1.22",
+        "psr/http-message": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*",
+        "fig/cache-util": "dev-master"
+    },
+    "autoload": {
+        "psr-4":
+        {"Solid\\Html\\": "src"}
+
+    }
+}
